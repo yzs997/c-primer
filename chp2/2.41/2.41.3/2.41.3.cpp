@@ -15,30 +15,24 @@ int main()
 	if (std::cin >> currBook.bookNo >> currBook.units_sold >> price1)
 	{
 		currBook.revenue = currBook.units_sold * price1;
-		unsigned cnt = currBook.units_sold;
-		double total_revenue = currBook.revenue;
-		
-
 		while (std::cin >> book.bookNo >> book.units_sold >> price2)
 		{	
 			
 			book.revenue = book.units_sold * price2;
 			if (currBook.bookNo == book.bookNo)
 			{
-				cnt += book.units_sold;
-				total_revenue += book.revenue;
+				currBook.units_sold += book.units_sold;
+				currBook.revenue += book.revenue;
 			}
 			else
 			{
-				std::cout << currBook.bookNo << " " << cnt << " " << total_revenue << " "
-					<< total_revenue / cnt << std::endl;
+				std::cout << currBook.bookNo << " " << currBook.units_sold << " " << currBook.revenue
+					<< currBook.revenue / currBook.units_sold;
 				currBook = book;
-				cnt = currBook.units_sold;
-				total_revenue = currBook.revenue;
 			}
 		}
-		std::cout << currBook.bookNo << " " << cnt << " " << total_revenue << " "
-			<< total_revenue / cnt << std::endl;
+		std::cout << currBook.bookNo << " " << currBook.units_sold << " " << currBook.revenue
+			<< currBook.revenue / currBook.units_sold;
 	}
 	return 0;
 }
