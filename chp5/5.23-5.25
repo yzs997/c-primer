@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int i, j;
+	while (std::cin >> i >> j) {
+		try {
+			if (j == 0)
+				throw runtime_error("divisor is 0");
+			cout << static_cast<double>(i) / j;
+		}
+		catch (runtime_error err) {
+			cout << err.what() << endl;
+			cout << "Try Again? Enter y or n" << endl;
+			char c;
+			cin >> c;
+			if (c == 'n')
+				break;
+		}
+	}
+}
