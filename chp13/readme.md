@@ -6,7 +6,7 @@ test
 test
 test
 test
-```
+```cpp
 int main()
 {
 	//test
