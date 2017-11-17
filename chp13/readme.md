@@ -38,7 +38,8 @@ Point global;
 Point foo_bar(Point arg)							//1
 {
 	Point local = arg, *heap = new Point(global);				//2, 3
-	*heap = local;									
+
+*heap = local;									
 	Point pa[4] = { local, *heap };						//4, 5
 	return *heap;								//6
 }
@@ -91,3 +92,40 @@ bool fcn(const Sales_data *trans, Sales_data accum)
     return item1.isbn() != item2.isbn();
 }
 ```
+3 times.
+* accum
+* item1
+* item2
+
+[Exercise 13.13](https://github.com/yzs997/c-primer/tree/master/chp13/ex_13_13)
+-
+Exercise 13.14
+-
+>Assume that numbered is a class with a default constructor that generates a unique serial number for each object, which is stored in a data member named mysn. Assuming numbered uses the synthesized copy-control members and given the following function:
+
+```cpp
+void f (numbered s) { cout << s.mysn << endl; }
+```
+>what output does the following code produce?
+
+```cpp
+numbered a, b = a, c = b;
+f(a); f(b); f(c);
+```
+
+3 identical numbers.
+Exercise 13.15
+-
+>Assume numbered has a copy constructor that generates a new serial number. Does that change the output of the calls in the previous exercise? If so, why? What output gets generated?
+
+Yes, it does. Because, as described, the newly defined copy constructor can handle such situations as expected.Thus, the output will be three different numbers.
+Exericse 13.16
+-
+>What if the parameter in f were const numbered&? Does that change the output? If so, why? What output gets generated?
+
+Yes, the output will change. Because no copy operation happens within function f. Thus, the three Output are the same.
+
+[Exercise 13.17](https://github.com/yzs997/c-primer/tree/master/chp13/ex_13_17)
+-
+>Write versions of numbered and f corresponding to the previous three exercises and check whether you correctly predicted the output.
+
