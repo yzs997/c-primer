@@ -42,7 +42,8 @@ Point foo_bar(Point arg)							//1
 	return *heap;								//6
 }
 ```
-
+[Exercise 13.5](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_05.h)
+-
 
 
 
