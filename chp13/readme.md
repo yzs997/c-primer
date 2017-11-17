@@ -6,3 +6,8 @@ test
 test
 test
 test
+`````
+int main()
+{
+	//test
+}
