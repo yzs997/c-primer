@@ -114,7 +114,6 @@ void f (numbered s) { cout << s.mysn << endl; }
 numbered a, b = a, c = b;
 f(a); f(b); f(c);
 ```
-
 3 identical numbers.
 
 Exercise 13.15
@@ -122,6 +121,7 @@ Exercise 13.15
 >Assume numbered has a copy constructor that generates a new serial number. Does that change the output of the calls in the previous exercise? If so, why? What output gets generated?
 
 Yes, it does. Because, as described, the newly defined copy constructor can handle such situations as expected.Thus, the output will be three different numbers.
+
 Exericse 13.16
 -
 >What if the parameter in f were const numbered&? Does that change the output? If so, why? What output gets generated?
