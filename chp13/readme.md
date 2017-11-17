@@ -22,4 +22,31 @@ If declaration like that, the call would never succeed to call the copy construc
 
 Exercise 13.3
 -
->
+>What happens when we copy a StrBlob? What about StrBlobPtrs?
+
+when we copy a StrBlob, the shared_ptr member's use_count add one.
+
+when we copy a StrBlobPrts, the weak_ptr member's use_count isn't changed.(cause the count belongs to shared_ptr)
+
+Exercise 13.4
+-
+>Assuming Point is a class type with a public copy constructor, identify each use of the copy constructor in this program fragment:
+
+```cpp
+Point global;
+Point foo_bar(Point arg)							//1
+{
+	Point local = arg, *heap = new Point(global);	//2, 3
+	*heap = local;									
+	Point pa[4] = { local, *heap };					//4, 5
+	return *heap;									//6
+}
+```
+
+
+
+
+
+
+
+
