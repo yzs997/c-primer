@@ -1,3 +1,4 @@
+
 chp13
 =
 Exercise 13.1
@@ -44,10 +45,22 @@ Point foo_bar(Point arg)							//1
 ```
 [Exercise 13.5](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_05.h)
 -
+Exercise 13.6
+-
+>What is a copy-assignment operator? When is this operator used? What does the synthesized copy-assignment operator do? When is it synthesized?
 
+* The copy-assignment operator is function named `operator=` and takes an argument of the same type as the class.
+* This operator is used when assignment occurred.
+* The synthesized copy-assignment operator assigns each `nonstatic` member of the right-hand object to corresponding member of the left-hand object using the copy-assignment operator for the type of that member.
+* It is synthesized when the class does not define its own.
+Exercise 13.7
+-
+>What happens when we assign one StrBlob to another? What about StrBlobPtrs?
 
-
-
-
+In both cases, shallow copy will happen. All pointers point to the same address.
+* the shared_ptr member's use_count add one.
+* weak_ptr member's use_count isn't changed.(cause the count belongs to shared_ptr)
+[Exercise 13.8]
+-
 
 
