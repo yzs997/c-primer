@@ -132,3 +132,33 @@ Yes, the output will change. Because no copy operation happens within function f
 -
 >Write versions of numbered and f corresponding to the previous three exercises and check whether you correctly predicted the output.
 
+[Exercise 13.18](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_18.h)
+-
+
+Exercise 13.19
+-
+>Does your Employee class need to define its own versions of the copy-control members?If so, why? If not, why not?Implement whatever copy-control members you think Employee needs.
+
+```cpp
+    Employee(const Employee&) = delete;
+    Employee& operator=(const Employee&) = delete;
+```
+
+Exercise 13.20
+-
+>Explain what happens when we copy, assign, or destroy objects of our TextQuery and QueryResult classes from § 12.3 (p. 484).
+
+The member (smart pointer and container) will be copied.
+
+Exercise 13.21
+-
+>Do you think the TextQuery and QueryResult classes need to define their own versions of the copy-control members? If so, why? If not, why not? Implement whichever copy-control operations you think these classes require.
+
+As synthesized version meet all requirements for this case, no custom version control memebers need to define. 
+
+
+
+
+
+
+
