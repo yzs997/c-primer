@@ -22,6 +22,7 @@ If declaration like that, the call would never succeed to call the copy construc
 
 Exercise 13.3
 -
+
 >What happens when we copy a StrBlob? What about StrBlobPtrs?
 
 when we copy a StrBlob, the shared_ptr member's use_count add one.
@@ -44,6 +45,7 @@ Point foo_bar(Point arg)							//1
 	return *heap;								//6
 }
 ```
+
 [Exercise 13.5](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_05.h)
 -
 Exercise 13.6
@@ -114,6 +116,7 @@ f(a); f(b); f(c);
 ```
 
 3 identical numbers.
+
 Exercise 13.15
 -
 >Assume numbered has a copy constructor that generates a new serial number. Does that change the output of the calls in the previous exercise? If so, why? What output gets generated?
