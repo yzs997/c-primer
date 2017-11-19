@@ -180,6 +180,18 @@ Exercise 13.25
 [Exercise 13.26](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_26.h)
 -
 
+[Exercise 13.27](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_27.h)
+-
+[Exercise 13.28](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_28.h)
+-
+Exercise 13.29
+-
+>Explain why the calls to swap inside swap(HasPtr&, HasPtr&) do not cause a recursion loop.
+
+swap(lhs.ps, rhs.ps); feed the version : swap(std::string*, std::string*) and swap(lhs.i, rhs.i); feed the version : swap(int, int). Both them can't call swap(HasPtr&, HasPtr&). Thus, the calls don't cause a recursion loop.
+
+[Exercise 13.30](
+
 
 
 
