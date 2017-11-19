@@ -190,7 +190,44 @@ Exercise 13.29
 
 swap(lhs.ps, rhs.ps); feed the version : swap(std::string*, std::string*) and swap(lhs.i, rhs.i); feed the version : swap(int, int). Both them can't call swap(HasPtr&, HasPtr&). Thus, the calls don't cause a recursion loop.
 
-[Exercise 13.30](
+[Exercise 13.30](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_30.h)
+-
+[Exercise 13.31](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_31.h)
+-
+Exercise 13.32
+-
+>Would the pointerlike version of HasPtr benefit from defining a swap function? If so, what is the benefit? If not, why not?
+
+Essentially, the specific avoiding memory allocation is the reason why it improve performance. As for the pointerlike version, no dynamic memory allocation anyway. Thus, a specific version for it will not improve the performance.
+
+Exercise 13.33
+-
+>Why is the parameter to the save and remove members of Message a Folder&? Why didn’t we define that parameter as Folder? Or const Folder&?
+
+Because these operations must also update the given Folder. Updating a Folder is a job that the Folder class controls through its addMsg and remMsg members, which will add or remove a pointer to a given Message, respectively.
+
+[Exercise 13.34](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_34.h)
+-
+Exercise 13.35
+-
+>What would happen if Message used the synthesized versions of the copy-control members?
+
+some existing Folders will out of sync with the Message after assignment.
+
+[Exercise 13.36](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_36.h)
+-
+[Exercise 13.37](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_37.h)
+-
+Exercise 13.38
+-
+>We did not use copy and swap to define the Message assignment operator. Why do you suppose this is so?
+
+@Mooophy The copy and swap is an elegant way when working with dynamicly allocated memory. In the Message class , nothing is allocated dynamically. Thus using this idiom makes no sense and will make it more complicated to implement due to the pointers that point back.
+[\br]
+@pezy In this case, swap function is special. It will be clear two Message's folders , then swap members, and added themselves to each folders. But, Message assignment operator just clear itself, and copy the members, and added itself to each folders. The rhs don't need to clear and add to folders. So, if using copy and swap to define, it will be very inefficiency.
+
+
+
 
 
 
