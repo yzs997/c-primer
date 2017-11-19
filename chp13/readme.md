@@ -214,9 +214,9 @@ Exercise 13.35
 
 some existing Folders will out of sync with the Message after assignment.
 
-[Exercise 13.36](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_36.h)
+[Exercise 13.36](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_36)
 -
-[Exercise 13.37](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_37.h)
+[Exercise 13.37](https://github.com/yzs997/c-primer/blob/master/chp13/ex_13_37)
 -
 Exercise 13.38
 -
