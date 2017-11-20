@@ -52,3 +52,13 @@ Exercise 11.6
  [Exercise 11.7](https://github.com/yzs997/c-primer/tree/master/chp11/11.7)
  -
  >定义一个map, 关键字是家庭的姓, 值是一个vector, 保存家中的孩子(们)的名. 编写代码, 实现添加新的孩子以及向以后家庭中添加新的孩子。
+ 
+ [Exercise 11.8](https://github.com/yzs997/c-primer/tree/master/chp11/11.8)
+ -
+>编写一个程序，在一个vector而不是一个set中保存不重复的单词。使用set的优点是什么？
+
+* A set is ordered. It is guaranteed to remain in a specific ordering, according to a functor that you provide. No matter what elements you add or remove (unless you add a duplicate, which is not allowed in a set), it will always be ordered.
+* A vector has exactly and only the ordering you explicitly give it. Items in a vector are where you put them. If you put them in out of order, then they're out of order; you now need to sort the container to put them back in order.
+* The time it takes to insert an item into a vector is proportional to the number of items already in the vector. The time it takes to insert an item into a set is proportional to the log₂ of the number of items. If the number of items is large, that's a huge difference. log₂(100,000) is ~16; that's a major speed improvement. The same goes for removal.
+* However, if you do all of your insertions at once, at initialization time, then there's no problem. You can insert everything into the vector, sort it (paying that price once), and then use standard algorithms for sorted vectors to find elements and iterate over the sorted list. And while iteration over the elements of a set isn't exactly slow, iterating over a vector is faster.
+* So there are cases where a sorted vector beats a set. That being said, you really shouldn't bother with the expense of this kind of optimization unless you know that it is necessary. So use a set unless you have experience with the kind of system you're writing (and thus know that you need that performance) or have profiling data in hand that tells you that you need a vector and not a set.
