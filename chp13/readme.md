@@ -202,6 +202,7 @@ Essentially, the specific avoiding memory allocation is the reason why it improv
 
 Exercise 13.33
 -
+
 >Why is the parameter to the save and remove members of Message a Folder&? Why didn’t we define that parameter as Folder? Or const Folder&?
 
 Because these operations must also update the given Folder. Updating a Folder is a job that the Folder class controls through its addMsg and remMsg members, which will add or remove a pointer to a given Message, respectively.
@@ -252,6 +253,20 @@ elements   | first_free    cap
 	       |
     "unconstructed"
 ```
+
+[Exerise 13.42](https://github.com/yzs997/c-primer/tree/master/chp13/13.42)
+-
+Exercise 13.43
+-
+>Rewrite the free member to use for_each and a lambda (10.3.2, p. 388) in place of the for loop to destroy the elements. Which implementation do you prefer, and why?
+
+### Rewrite
+```
+for_each(elements, first_free, [this](std::string &rhs){ alloc.destroy(&rhs); });
+```
+
+@Mooophy: The new version is better. Compared to the old one, it doesn't need to worry about the order and decrement.So more straightforward and handy. The only thing to do for using this approach is to add "&" to build the pointers to string pointers.
+
 
 
 
