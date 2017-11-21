@@ -154,4 +154,41 @@ multiset<Sales_data, bool (*)(const Sales_data&, Sales_data&)> bookstore(compare
 multiset<Sales_data, bool (*)(const Sales_data&, Sales_data&)>::iterator it = bookstore.begin()
 ```
 
+[Exercise 11.20](https://github.com/yzs997/c-primer/tree/master/chp11/11.20)
+-
+> Rewrite the word-counting program from § 11.1 (p. 421) to use insert instead of subscripting. Which program do you think is easier to write and read?Explain 
+your reasoning.
+
+Exercise 11.21
+-
+> Assuming word_count is a map from string to size_t and word is a string, explain the following loop:
+
+This code can be explained like this pseudocode:
+
+```
+while reading into word
+    if word_count has key word:
+        word_count[word] += 1
+    else:
+        word_count[word] = 0
+        word_count[word] += 1
+```
+
+Exercise 11.22
+-
+> Given a map<string, vector<int>>, write the types used as an argument and as the return value for the version of insert that inserts one element.
+
+```
+pair<string, vector<int>>                           // argument
+pair<map<string, vector<int>>::iterator, bool>      // return type
+```
+
+[Exercise 11.23](https://github.com/yzs997/c-primer/tree/master/chp11/11.20)
+-
+> Rewrite the map that stored vectors of children’s names with a key that is the family last name for the exercises
+
+
+
+
+
 
