@@ -102,3 +102,55 @@ Exercise 11.10
  vec.push_back(pair<string, int>(s, i));
  vec.emplace_back(s, i);  //easiest.
  ```
+
+Exercise 11.14(https://github.com/yzs997/c-primer/tree/master/chp11/11.14)
+-
+> 扩展你在 11.2.1 节练习(第 378 页)中编写的孩子姓到名的 map,添加一个 pair 的 vector,保存孩子的名和生日.
+
+Exrcsise 11.15 
+-
+> 对于一个 int 到vector<int> 的 map,其 mapped_type, key_type 和 value_type 分别是什么?
+
+* mapped_type : vector<int>
+* key_type : int
+* value_type : pair<const int, vector<int>>
+
+Exercise 11.16:
+-
+> Using a map iterator write an expression that assigns a value to an element.
+
+```
+std::map<int, std::string> map;
+map[25] = "Alan";
+std::map<int, std::string>::iterator it = map.begin();
+it->second = "Wang";
+```
+
+Exercise 11.17
+-
+> Assuming c is a multiset of strings and v is a vector of strings, explain the following calls. Indicate whether each call is legal:
+
+```
+copy(v.begin(), v.end(), inserter(c, c.end())); // legal
+copy(v.begin(), v.end(), back_inserter(c)); // illegal, no `push_back` in `set`.
+copy(c.begin(), c.end(), inserter(v, v.end())); // legal.
+copy(c.begin(), c.end(), back_inserter(v)); // legal.
+```
+
+Exercise 11.18:
+-
+> Write the type of map_it from the loop on page 430 without using auto or decltype.
+
+```
+map<string, size_t>::const_iterator;
+
+Exercise 11.19:
+-
+> Define a variable that you initialize by calling begin() on the multiset named bookstore from 11.2.2 (p. 425). Write the variable’s type without using auto or decltype.
+
+```
+multiset<Sales_data, bool (*)(const Sales_data&, Sales_data&)> bookstore(compareIsbn)
+multiset<Sales_data, bool (*)(const Sales_data&, Sales_data&)>::iterator it = bookstore.begin()
+```
+
+
