@@ -88,4 +88,17 @@ Exercise 11.10
  multiset<Sales_data, bool (*)(const Sales_data&, const Sales_data&)> bookstore(compareIsbn);
  ```
  
+ [Exercise 11.12](https://github.com/yzs997/c-primer/tree/master/chp11/11.12) 
+ -
+ > 编写程序, 读入 string 和 int 的序列, 将每个 string 和 int 存入一个 pair 中, pair 保存在一个 vector 中.
  
+ Exercise 11.13
+ -
+ > 上一题的程序中, 至少有三种创建 pair 的方法.编写此程序的三个版本, 分别采用不同的方法创建 pair .解释你认为哪种形式最易于编写和理解,为什么?
+ 
+ ```
+ vec.push_back(make_pair(s, i));
+ vec.push_back({s, i});
+ vec.push_back(pair<string, int>(s, i));
+ vec.emplace_back(s, i);  //easiest.
+ ```
