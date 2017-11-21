@@ -22,6 +22,7 @@ Exercise 11.2
 -
 >编写你自己的单词计数程序
 
+
 [Exercise 11.4](https://github.com/yzs997/c-primer/tree/master/chp11/11.4)
 -
 >扩展你的程序，忽略大小写和标点。例如，"example."、"example,"和”Example"应该递增相同的计数器。
@@ -62,3 +63,29 @@ Exercise 11.6
 * The time it takes to insert an item into a vector is proportional to the number of items already in the vector. The time it takes to insert an item into a set is proportional to the log₂ of the number of items. If the number of items is large, that's a huge difference. log₂(100,000) is ~16; that's a major speed improvement. The same goes for removal.
 * However, if you do all of your insertions at once, at initialization time, then there's no problem. You can insert everything into the vector, sort it (paying that price once), and then use standard algorithms for sorted vectors to find elements and iterate over the sorted list. And while iteration over the elements of a set isn't exactly slow, iterating over a vector is faster.
 * So there are cases where a sorted vector beats a set. That being said, you really shouldn't bother with the expense of this kind of optimization unless you know that it is necessary. So use a set unless you have experience with the kind of system you're writing (and thus know that you need that performance) or have profiling data in hand that tells you that you need a vector and not a set.
+
+
+Exercise 11.9
+-
+> 定义一个 map, 将单词与一个行号的 list 关联, list 中保存的是单词所出现的行号.
+
+```
+map<string, list<size_t>> m
+```
+
+Exercise 11.10
+-
+> 可以定义一个 vector<int>::iteartor 到 int 的 map 吗? list<int>::ierator 到 int 的  map 呢? 对于两种情况, 如果不能, 解释为什么?
+ 
+ * vector<int>::iterator to int is ok, because < is defined;
+ * list<int>::iterator to int is not ok, as no < is defines;
+                                                   
+ Exercise 11.11
+ -
+ > 不适用 decltype 重新定义 bookstore
+ 
+ ```
+ multiset<Sales_data, bool (*)(const Sales_data&, const Sales_data&)> bookstore(compareIsbn);
+ ```
+ 
+ 
