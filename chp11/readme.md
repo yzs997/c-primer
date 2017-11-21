@@ -143,6 +143,7 @@ Exercise 11.18:
 
 ```
 map<string, size_t>::const_iterator;
+```
 
 Exercise 11.19:
 -
