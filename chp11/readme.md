@@ -103,7 +103,7 @@ Exercise 11.10
  vec.emplace_back(s, i);  //easiest.
  ```
 
-Exercise 11.14(https://github.com/yzs997/c-primer/tree/master/chp11/11.14)
+[Exercise 11.14](https://github.com/yzs997/c-primer/tree/master/chp11/11.14)
 -
 > 扩展你在 11.2.1 节练习(第 378 页)中编写的孩子姓到名的 map,添加一个 pair 的 vector,保存孩子的名和生日.
 
@@ -187,7 +187,83 @@ pair<map<string, vector<int>>::iterator, bool>      // return type
 -
 > Rewrite the map that stored vectors of children’s names with a key that is the family last name for the exercises
 
+Exercise 11.24
+-
+> What does the following program do?
 
+```
+map<int, int> m;
+m[0] = 1;
+```
+
+add a key-value pair { 0, 1 } into the map.
+
+Exercise 11.25
+-
+> Contrast the following program with the one in the previous exercise
+
+```
+vector<int> v;
+vec[0] = 1;
+```
+
+UB, since it's trying to dereference an item out of range.
+
+[Exercise 11.26](https://github.com/yzs997/c-primer/tree/master/chp11/11.26)
+-
+> What type can be used to subscript a map? What type does the subscript
+operator return? Give a concrete example—that is, define a map and then
+write the types that can be used to subscript the map and the type that
+would be returned from the subscript operator.
+
+Exercise 11.27:
+-
+>What kinds of problems would you use count to solve?
+When might you use find instead?
+
+I would use count to deal with multimap or multi multiset.
+As for the associative container that have unique key, I would use find instead of count.
+
+Exercise 11.28:
+-
+> Define and initialize a variable to hold the result of calling find on a map from string to vector of int.
+
+```
+map<string, vector<in>>::iterator
+```
+
+Exercise 11.29:
+-
+> What do upper_bound, lower_bound, and equal_range return when you pass them a key that is not in the container?
+
+* lower_bound and upper_bound will return equal iterators; both will refer to the point at which the key can be inserted without disrupting the order.
+
+* If no matching element is found, then both the first and second iterators refer to the position where this key can be inserted.
+
+
+
+Exercise 11.30:
+-
+> Explain the meaning of the operand pos.first->second used in the output expression of the final program in this section.
+
+```
+cout << pos.first->second << endl;
+pos                     a pair
+pos.first               iterator referring to a pair
+pos.first->second       the value
+```
+
+[Exercise 11.31](https://github.com/yzs997/c-primer/tree/master/chp11/11.31)
+-
+> Write a program that defines a multimap of authors and their works.Use find to find an element in the multimap and erase that element.Be sure your program works correctly if the element you look for is not in the map.
+
+[Exercise 11.32](https://github.com/yzs997/c-primer/tree/master/chp11/11.32)
+-
+> Using the multimap from the previous exercise, write a program to print the list of **authors and their works** alphabetically.
+
+[Exercise 11.33](https://github.com/yzs997/c-primer/tree/master/chp11/11.33)
+-
+> Implement your own version of the word-transformation program.
 
 
 
