@@ -1,14 +1,14 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#include <unordered_map>
+#include <map>
 #include <string>
 
 using namespace std;
 
-unordered_map<string, string> build_map(ifstream&);
+map<string, string> build_map(ifstream&);
 void word_transform(ifstream&, ifstream&);
-const string &transform(const string&, const unordered_map<string, string>&);
+const string &transform(const string&, const map<string, string>&);
 
 int main()
 {
@@ -43,9 +43,9 @@ void word_transform(ifstream &ifs_rules, ifstream &ifs_input)
 	}
 }
 
-unordered_map<string, string> build_map(ifstream &ifs_rules)
+map<string, string> build_map(ifstream &ifs_rules)
 {
-	unordered_map<string, string> map_transform;
+	map<string, string> map_transform;
 	string string_abbr;
 	string string_full;
 	while (ifs_rules >> string_abbr && getline(ifs_rules, string_full))
@@ -58,7 +58,7 @@ unordered_map<string, string> build_map(ifstream &ifs_rules)
 	return map_transform;
 }
 
-const string &transform(const std::string &string_word, const unordered_map<string, string> &map_trans)
+const string &transform(const std::string &string_word, const map<string, string> &map_trans)
 {
 	auto it_map = map_trans.find(string_word);
 	if (it_map != map_trans.end())
