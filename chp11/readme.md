@@ -265,6 +265,48 @@ pos.first->second       the value
 -
 > Implement your own version of the word-transformation program.
 
+Exercise 11.34
+-
+> What would happen if we used the subscript operator instead of find in the transform function?
 
+Say the code has been changed like below:
+```
+const string& transform(const string &s, const map<string, string> &m)
+{
+    return m[s];
+}
+```
+
+The above code won't compile because the subscript operator might insert an element (when the element with the key s is not found), and we may use subscript only on a map that is not const.
+
+Exercise 11.35
+-
+> In buildMap, what effect, if any, would there be from rewriting trans_map[key] = value.substr(1); as trans_map.insert({ key, value.substr(1) })?
+
+* use subscript operator: if a word does appear multiple times, our loops will put the last corresponding phrase into trans_map
+
+* use insert: if a word does appear multiple times, our loops will put the first corresponding phrase into trans_map
+
+Exercise 11.36
+-
+> Our program does no checking on the validity of either input file. In particular, it assumes that the rules in the transformation file are all sensible. What would happen if a line in that file has a key, one space, and then the end of the line? Predict the behavior and then check it against your version of the program.
+
+If so, a key-value pair will be {key, " "}(" ".size() !> 1), which cannot be added into the map. As a result, the key would not be replaced with any string.
+
+Exercise 11.37
+-
+> What are the advantages of an unordered container as compared to the ordered version of that container? What are the advantages of the ordered version?
+
+* Ordered Associative Container
+    * Standard Traversal encounters elements in sorted order
+    * Order predicate may be specified
+    * Default order predicate is "less than", defined using operator< for the element type
+    * Popular implementations: OrderedVector, BinarySearchTree
+    * Search operations required to have O(log n) runtime
+    *Insert, Remove operations should either be seldom used or have O(log n) runtime
+* Unordered Associative Container
+    * Standard Traversal encounters elements in unspecified order
+    * Search, Insert, Remove operations should have average-case constant runtime
+    * Popular implementations use hashing
 
 
